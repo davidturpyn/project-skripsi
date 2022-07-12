@@ -32,7 +32,7 @@
                                 </strong>
                                 <label class="fs-5" for="">{{ $data->jenis_industri->nama }}</label>
                                 <p class="fs-9 text-wrap" for=""><i class="fas fa-map-marker-alt"></i>
-                                    {{ ucwords(strtolower($data->regencies->name)) . ', ' . ucwords(strtolower($data->provinsi->name)) }}
+                                    {{ ucwords(strtolower($data->villages->name))}}
                                 </p>
                             </div>
                         </div>

@@ -44,7 +44,7 @@ class District extends Model
      */
     public function regency()
     {
-        return $this->belongsTo(Regency::class);
+        return $this->belongsTo(Regency::class, 'regency_id', 'id');
     }
 
     /**
@@ -54,6 +54,6 @@ class District extends Model
      */
     public function villages()
     {
-        return $this->hasMany(Village::class);
+        return $this->hasMany(Village::class, 'kecamatan_id', 'id');
     }
 }

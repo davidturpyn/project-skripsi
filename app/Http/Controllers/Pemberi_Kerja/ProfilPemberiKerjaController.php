@@ -27,9 +27,7 @@ class ProfilPemberiKerjaController extends Controller
         $legalitas_perusahaan = LegalitasPerusahaan::firstWhere('id_users',$user->id);
         $data_pemberi_kerja = DataPemberiKerja::with('jenis_industri')->firstWhere('id_users', Auth::user()->id);
         $get_kelurahan = Village::firstWhere('id', $data_pemberi_kerja->kelurahan_id);
-        // dd($get_kelurahan->id);
         $get_kecamatan = District::firstWhere('id', $get_kelurahan->district_id);
-        // dd($get_kecamatan->id);
         $get_kabupaten = Regency::firstWhere('id', $get_kecamatan->regency_id);
         $get_provinsi = Province::firstWhere('id', $get_kabupaten->province_id);
         return view('pemberi_kerja.profil_pemberi_kerja.profil_pemberi_kerja',[

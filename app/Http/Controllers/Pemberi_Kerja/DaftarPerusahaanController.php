@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Pemberi_Kerja;
 
 use App\Http\Controllers\Controller;
 use App\Models\DataPemberiKerja;
+use App\Models\District;
+use App\Models\Province;
 use App\Models\Regency;
+use App\Models\Village;
 use Illuminate\Http\Request;
 
 class DaftarPerusahaanController extends Controller
@@ -16,11 +19,13 @@ class DaftarPerusahaanController extends Controller
      */
     public function index()
     {
-        $data_pemberi_kerja = DataPemberiKerja::with('jenis_industri','provinsi','regencies')->get();
-        return view("pemberi_kerja.daftar_perusahaan.daftar_perusahaan",
-        [
-            "data_pemberi_kerjas" => $data_pemberi_kerja,
-        ]);
+        $data_pemberi_kerja = DataPemberiKerja::with('jenis_industri','villages')->get();
+        return view(
+            "pemberi_kerja.daftar_perusahaan.daftar_perusahaan",
+            [
+                "data_pemberi_kerjas" => $data_pemberi_kerja,
+            ]
+        );
     }
 
     /**
@@ -53,7 +58,7 @@ class DaftarPerusahaanController extends Controller
     public function show($id)
     {
         $data_pemberi_kerja = DataPemberiKerja::find($id);
-        return response()->json([ 'error' => false, 'data_pemberi_kerjas' => $data_pemberi_kerja, ], 200); 
+        return response()->json(['error' => false, 'data_pemberi_kerjas' => $data_pemberi_kerja,], 200);
     }
 
     /**

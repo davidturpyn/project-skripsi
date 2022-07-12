@@ -54,8 +54,8 @@
                     <p> <b>Alamat</b></p>
                     <div class="col-md-6">
                         <label>Provinsi</label>
-                        <select id="provinsi" class="form-control" value="{{ $lowongan_kerjas->provinsi_id }}"
-                            data-value="{{ $lowongan_kerjas->provinsi_id }}" name="provinsi_id" required>
+                        <select id="provinsi" class="form-control" value="{{ $get_provinsi->id }}"
+                            data-value="{{ $get_provinsi->id }}" name="provinsi_id" required>
                             @foreach ($provinsis as $pro)
                                 <option value="{{ $pro->id }}">{{ $pro->name }}</option>
                             @endforeach
@@ -64,9 +64,9 @@
                     <div class="col-md-6">
                         <label>Kabupaten</label>
                         <select id="kabupaten" disabled class="form-control"
-                            value="{{ $lowongan_kerjas->kabupaten_id }}"
-                            data-value="{{ $lowongan_kerjas->kabupaten_id }}" name="kabupaten_id" required>
-                            @foreach ($lowongan_kerjas->provinsi->regencies as $kab)
+                            value="{{ $get_kabupaten->id }}"
+                            data-value="{{ $get_kabupaten->id }}" name="kabupaten_id" required>
+                            @foreach ($get_provinsi->regencies as $kab)
                                 <option value="{{ $kab->id }}">{{ $kab->name }}</option>
                             @endforeach
                         </select>
@@ -77,9 +77,9 @@
                     <div class="col-md-6">
                         <label>Kecamatan</label>
                         <select id="kecamatan" disabled class="form-control" name="kecamatan_id"
-                            value="{{ $lowongan_kerjas->kecamatan_id }}"
-                            data-value="{{ $lowongan_kerjas->kecamatan_id }}" required="">
-                            @foreach ($lowongan_kerjas->provinsi->districts as $kec)
+                            value="{{ $get_kecamatan->id }}"
+                            data-value="{{ $get_kecamatan->id }}" required="">
+                            @foreach ($get_provinsi->districts as $kec)
                                 <option value="{{ $kec->id }}">{{ $kec->name }}</option>
                             @endforeach
                         </select>
@@ -87,9 +87,9 @@
                     <div class="col-md-6">
                         <label>Kelurahan</label>
                         <select id="kelurahan" disabled class="form-control" name="kelurahan_id"
-                            value="{{ $lowongan_kerjas->kelurahan_id }}"
-                            data-value="{{ $lowongan_kerjas->kelurahan_id }}" name="kabupaten_id" required>
-                            @foreach ($lowongan_kerjas->provinsi->villages as $kel)
+                            value="{{ $get_kelurahan->id }}"
+                            data-value="{{ $get_kelurahan->id }}" name="kabupaten_id" required>
+                            @foreach ($get_provinsi->villages as $kel)
                                 <option value="{{ $kel->id }}">{{ $kel->name }}</option>
                             @endforeach
                         </select>

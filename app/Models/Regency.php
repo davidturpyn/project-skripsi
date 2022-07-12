@@ -42,7 +42,7 @@ class Regency extends Model
      */
     public function province()
     {
-        return $this->belongsTo(Province::class);
+        return $this->belongsTo(Province::class, 'province_id', 'id');
     }
     public function data_pemberi_kerja(){
         return $this->hasMany(DataPemberiKerja::class, 'kabupaten_id','id');

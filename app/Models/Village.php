@@ -43,6 +43,9 @@ class Village extends Model
      */
     public function district()
     {
-        return $this->belongsTo(District::class);
+        return $this->belongsTo(District::class, 'kecamatan_id', 'id');
+    }
+    public function data_pemberi_kerja(){
+        return $this->hasMany(DataPemberiKerja::class, 'provinsi_id','id');
     }
 }

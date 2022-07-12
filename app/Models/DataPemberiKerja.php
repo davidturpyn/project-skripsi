@@ -29,6 +29,14 @@ class DataPemberiKerja extends Model
     {
         return $this->belongsTo(Regency::class, 'kabupaten_id', 'id');
     }
+    public function districts()
+    {
+        return $this->belongsTo(District::class, 'kecamatan_id', 'id');
+    }
+    public function villages()
+    {
+        return $this->belongsTo(Village::class, 'kelurahan_id', 'id');
+    }
     public function lowongan_kerja()
     {
         return $this->hasMany(LowonganKerja::class, 'id_data_pemberi_kerja', 'id');

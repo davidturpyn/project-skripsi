@@ -80,6 +80,10 @@ class LowonganKerjaController extends Controller
         $lowongan_kerja = LowonganKerja::with(['disabilitas', 'keahlians', 'kontaks'])->find($id);
         $jabatan = Jabatan::all();
         $provinces = Province::all();
+        $get_kelurahan = Village::firstWhere('id', $lowongan_kerja->kelurahan_id);
+        $get_kecamatan = District::firstWhere('id', $get_kelurahan->district_id);
+        $get_kabupaten = Regency::firstWhere('id', $get_kecamatan->regency_id);
+        $get_provinsi = Province::firstWhere('id', $get_kabupaten->province_id);
         $bidang_pekerjaan = BidangPekerjaan::all();
         $jenis_industri = JenisIndustri::all();
         $macam_keahlian = MacamKeahlian::all();
@@ -90,6 +94,10 @@ class LowonganKerjaController extends Controller
                 'lowongan_kerjas' => $lowongan_kerja,
                 'jabatans' => $jabatan,
                 'provinsis' => $provinces,
+                'get_provinsi' => $get_provinsi,
+                'get_kabupaten' => $get_kabupaten,
+                'get_kecamatan' => $get_kecamatan,
+                'get_kelurahan' => $get_kelurahan,
                 'bidang_pekerjaans' => $bidang_pekerjaan,
                 'jenis_industris' => $jenis_industri,
                 'macam_keahlians' => $macam_keahlian,
@@ -100,10 +108,11 @@ class LowonganKerjaController extends Controller
     public function edit($id)
     {
         $lowongan_kerja = LowonganKerja::find($id);
-        return response()->json([ 'error' => false, 'lowongan_kerjas' => $lowongan_kerja, ], 200);
+        return response()->json(['error' => false, 'lowongan_kerjas' => $lowongan_kerja,], 200);
     }
     public function update(Request $request, $id)
     {
+        // dd($request->all());
         // delete data yang ada pada many to many 
         $lowongan_kerjas = LowonganKerja::find($id);
         $lowongan_kerjas->disabilitas()->detach();
