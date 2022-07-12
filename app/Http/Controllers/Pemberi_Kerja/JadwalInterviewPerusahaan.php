@@ -23,21 +23,27 @@ class JadwalInterviewPerusahaan extends Controller
     public function index()
     {
         $data_pemberi_kerja = DataPemberiKerja::firstWhere('id_users', Auth::user()->id);
-
         if ($data_pemberi_kerja) {
             $lowongan_kerja = LowonganKerja::where('id_data_pemberi_kerja', $data_pemberi_kerja->id)->get();
-            $jadwal_interview = JadwalInterview::orderBy('id', 'asc')->paginate(5);
+            if ($lowongan_kerja->count()) {
+                $jadwal_interview = JadwalInterview::orderBy('id', 'asc')->paginate(5);
+                return view('pemberi_kerja.jadwal_interview.jadwal_interview')->with(
+                    [
+                        'data_pemberi_kerjas' => $data_pemberi_kerja,
+                        'jadwal_interviews' => $jadwal_interview,
+                        'lowongan_kerjas' => $lowongan_kerja,
+                    ]
+                );
+            }
             return view('pemberi_kerja.jadwal_interview.jadwal_interview')->with(
                 [
                     'data_pemberi_kerjas' => $data_pemberi_kerja,
-                    'jadwal_interviews' => $jadwal_interview,
                     'lowongan_kerjas' => $lowongan_kerja,
-                ]
-            );
+                ])
+                ->withErrors(['pesan' => 'KOSONG']);
         }
-        return view('pemberi_kerja.jadwal_interview.jadwal_interview')->with([
-            'data_pemberi_kerjas' => $data_pemberi_kerja,
-        ])->withErrors(['pesan' => 'KOSONG']);
+
+        //     
     }
 
     /**

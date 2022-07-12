@@ -13,34 +13,37 @@
     </div>
     <div class="card">
         @if ($errors->any())
-        <div class="modal fade" id="errorJadwalInterview" data-bs-backdrop="static" data-bs-keyboard="false"
-                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabel">Halo, {{ auth()->user()->firstname }}</h5>
-                            </div>
-                            <div class="modal-body">
-                                <p>
-                                    Wah belum ada lowongan kerja yang terdaftar nih,
-                                    Yuk buat lowongan pekerjaan dulu,
-                                    kemudian jadwalkan interview untuk lowongan tersebut.
-                                <p>
-                                <ul>
-                                    <li>
-                                        <p class="mb-0 fw-bold"> Membuat Lowongan Pekerjaan </p>
-                                        <p>
-                                            Layanan karirhub adalah layanan untuk publikasi lowongan kerja secara online dan mencari para talenta berbakat dengan data pencaker yang sudah tervalidasi dukcapil. Kamu juga dapat mempublikasi pekerjaan freelance / proyek lepas secara gratis!
-                                        </p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="modal-footer">
-                                <a class="btn btn-primary" href="{{ route('lowongan_kerja.index') }}">Menuju Lowongan Kerja</a>
-                            </div>
+            <div class="modal fade" id="errorJadwalInterview" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Halo, {{ auth()->user()->firstname }}</h5>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                Wah belum ada lowongan kerja yang terdaftar nih,
+                                Yuk buat lowongan pekerjaan dulu,
+                                kemudian jadwalkan interview untuk lowongan tersebut.
+                            <p>
+                            <ul>
+                                <li>
+                                    <p class="mb-0 fw-bold"> Membuat Lowongan Pekerjaan </p>
+                                    <p>
+                                        Layanan karirhub adalah layanan untuk publikasi lowongan kerja secara online dan
+                                        mencari para talenta berbakat dengan data pencaker yang sudah tervalidasi dukcapil.
+                                        Kamu juga dapat mempublikasi pekerjaan freelance / proyek lepas secara gratis!
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <a class="btn btn-primary" href="{{ route('lowongan_kerja.index') }}">Menuju Lowongan
+                                Kerja</a>
                         </div>
                     </div>
                 </div>
+            </div>
         @else
             <div class="card-header">
                 <div class="col-sm-6">
@@ -168,7 +171,7 @@
                         tanggal: $("#frmEditJadwalInterview input[name=tanggal_interview_edit]")
                             .val(),
                         alamat: $("#frmEditJadwalInterview input[name=alamat_interview_edit]")
-                        .val(),
+                            .val(),
                         keterangan_jadwal: $("#keterangan_edit").val(),
                         id_lowongan: $("#id_lowongan_kerja_edit").val(),
                     },
@@ -226,12 +229,9 @@
                     var tahun = tanggal.getFullYear();
                     var bulan = (1 + tanggal.getMonth()).toString().padStart(2, '0');
                     var hari = tanggal.getDate().toString().padStart(2, '0');
-                    // var detik = tanggal.getSeconds();
                     var menit = tanggal.getMinutes().toString().padStart(2, '0');
                     var jam = tanggal.getHours().toString().padStart(2, '0');
                     var hasilTanggal = tahun + "-" + bulan + "-" + hari + "T" + jam + ":" + menit;
-                    // console.log(data.jadwal_interviews.tanggal_interview);
-                    // console.log(hasilTanggal);
                     $("#edit-error-bag").hide();
                     $("#id_lowongan_kerja_edit").val(data.jadwal_interviews.id_lowongan_kerja);
                     $("#frmEditJadwalInterview input[name=nama_interview_edit]").val(data.jadwal_interviews
