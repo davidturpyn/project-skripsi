@@ -15,7 +15,7 @@ class CreateTenagaKerjasTable extends Migration
     {
         Schema::create('tenaga_kerjas', function (Blueprint $table) {
             $table->id();
-            $table->string('nik',16)->unique();
+            $table->string('nik')->unique();
             $table->string('nama_lengkap');
             $table->unsignedBigInteger('id_jabatan');
             $table->foreign('id_jabatan')->references('id')->on('jabatans');

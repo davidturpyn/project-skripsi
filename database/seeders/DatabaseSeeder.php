@@ -29,6 +29,6 @@ class DatabaseSeeder extends Seeder
         $this->call(DataPemberiKerjaSeeder::class);
         $this->call(LegalitasPerusahaanSeeder::class);
         $this->call(StatusPerusahaanSeeder::class);
-        // $this->call(TenagaKerjaSeeder::class);
+        $this->call(TenagaKerjaSeeder::class);
     }
 }
