@@ -42,7 +42,7 @@
                 </div>
             @else
                 <div class="card-header">
-                    @if ($pelaporans->count())
+                    @if ($pelaporans)
                         <div class="col-sm-6">
                             <a id="buat-laporan" data-pelaporan='kosong' href="#" class="btn btn-success "
                                 data-toggle="modal">

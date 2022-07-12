@@ -28,7 +28,7 @@ class DataPemberiKerjaSeeder extends Seeder
         $jenis_indusris = JenisIndustri::pluck('id');
         $villages = Village::pluck('id');
 
-        $faker = \Faker\Factory::create();
+        $faker = \Faker\Factory::create('id_ID');
         for ($i = 0; $i < 8; $i++) {
             
             // echo $faker->unique->randomElement($users), "\n";

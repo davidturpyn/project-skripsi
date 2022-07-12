@@ -19,7 +19,7 @@ class LegalitasPerusahaanSeeder extends Seeder
         foreach (array_keys($users, '1') as $key) {
             unset($users[$key]);
         }
-        $faker = \Faker\Factory::create();
+        $faker = \Faker\Factory::create('id_ID');
         for ($i = 0; $i < 8; $i++) {
             // echo $faker->numerify('#############'), "\n";
             LegalitasPerusahaan::create([
