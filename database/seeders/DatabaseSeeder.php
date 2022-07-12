@@ -30,5 +30,6 @@ class DatabaseSeeder extends Seeder
         $this->call(LegalitasPerusahaanSeeder::class);
         $this->call(StatusPerusahaanSeeder::class);
         $this->call(TenagaKerjaSeeder::class);
+        $this->call(LowonganKerjaSeeder::class);
     }
 }

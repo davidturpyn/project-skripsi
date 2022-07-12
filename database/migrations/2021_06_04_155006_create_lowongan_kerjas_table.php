@@ -17,12 +17,6 @@ class CreateLowonganKerjasTable extends Migration
             $table->id();
             $table->string('judul_pekerjaan');
             $table->text('deskripsi_pekerjaan');
-            $table->char('provinsi_id', 2);
-            $table->foreign('provinsi_id')->references('id')->on('provinces');
-            $table->char('kabupaten_id',4);
-            $table->foreign('kabupaten_id')->references('id')->on('regencies');
-            $table->char('kecamatan_id',7);
-            $table->foreign('kecamatan_id')->references('id')->on('districts');
             $table->char('kelurahan_id',10);
             $table->foreign('kelurahan_id')->references('id')->on('villages');
             $table->string('nama_jalan');
