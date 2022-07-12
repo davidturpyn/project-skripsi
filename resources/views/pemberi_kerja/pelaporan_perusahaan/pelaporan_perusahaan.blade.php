@@ -14,12 +14,13 @@
     <div class="container">
         <div class="card">
             @if ($errors->any())
-                <div class="modal fade" id="errorPelaporan" data-bs-backdrop="static" data-bs-keyboard="false"
-                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal fade" id="errorPelaporan" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                    aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabel">Halo, {{ auth()->user()->firstname }}</h5>
+                                <h5 class="modal-title" id="staticBackdropLabel">Halo, {{ auth()->user()->firstname }}
+                                </h5>
                             </div>
                             <div class="modal-body">
                                 <p>Yuk lengkapi profil perusahaan kamu untuk mendaftar di layanan - layanan ketenagakerjaan
@@ -29,22 +30,28 @@
                                     <li>
                                         <p class="mb-0 fw-bold"> Membuat Lowongan Pekerjaan </p>
                                         <p>
-                                            Layanan karirhub adalah layanan untuk publikasi lowongan kerja secara online dan mencari para talenta berbakat dengan data pencaker yang sudah tervalidasi dukcapil. Kamu juga dapat mempublikasi pekerjaan freelance / proyek lepas secara gratis!
+                                            Layanan karirhub adalah layanan untuk publikasi lowongan kerja secara online dan
+                                            mencari para talenta berbakat dengan data pencaker yang sudah tervalidasi
+                                            dukcapil. Kamu juga dapat mempublikasi pekerjaan freelance / proyek lepas secara
+                                            gratis!
                                         </p>
                                     </li>
                                 </ul>
                             </div>
                             <div class="modal-footer">
-                                <a class="btn btn-primary" href="{{ route('profil_pemberi_kerja.index') }}">Menuju Profil Perusahaan</a>
+                                <a class="btn btn-primary" href="{{ route('profil_pemberi_kerja.index') }}">Menuju Profil
+                                    Perusahaan</a>
                             </div>
                         </div>
                     </div>
                 </div>
             @else
                 <div class="card-header">
-                    @if ($pelaporans)
+                    @if ($pelaporans->count())
                         <div class="col-sm-6">
-                            <a id="buat-laporan" data-pelaporan='kosong' href="#" class="btn btn-success "
+                            <a id="buat-laporan" data-tgl_berlapor_laporan='{{ $tgl_berlapor_laporans[0] }}'
+                                data-tgl_berlaku_laporan='{{ $tgl_berlaku_laporans[0] }}'
+                                data-status_laporan='{{ $status_laporans[0] }}' class="btn btn-success "
                                 data-toggle="modal">
                                 <i class="fas fa-plus">&#xE147;</i>
                                 <span>
@@ -54,10 +61,7 @@
                         </div>
                     @else
                         <div class="col-sm-6">
-                            <a id="buat-laporan" data-tgl_berlapor_laporan='{{ $tgl_berlapor_laporans[0] }}'
-                                data-tgl_berlaku_laporan='{{ $tgl_berlaku_laporans[0] }}'
-                                data-status_laporan='{{ $status_laporans[0] }}' href="#" class="btn btn-success "
-                                data-toggle="modal">
+                            <a id="buat-laporan" data-pelaporan='kosong' class="btn btn-success " data-toggle="modal">
                                 <i class="fas fa-plus">&#xE147;</i>
                                 <span>
                                     Buat laporan
@@ -129,7 +133,7 @@
             if (errorPelaporan) {
                 errorPelaporan.appendTo('body').modal('show');
             }
-            @if (isset($data_pemberi_kerja))
+            @if (isset($data_pemberi_kerjas))
                 $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -170,7 +174,7 @@
                                 console.log(data);
                             }
                         });
-
+                        // alert(tanggal_sekarang);
                     } else if (dt_now > conv_berlapor && dt_now < conv_berlaku && status_laporan ==
                         "Berlaku") {
                         alert('laporan anda masih berlaku, dari tanggal ' + tgl_berlapor_laporan +
@@ -179,6 +183,7 @@
                     }
                 });
             @endif
+
         });
     </script>
 @endsection
