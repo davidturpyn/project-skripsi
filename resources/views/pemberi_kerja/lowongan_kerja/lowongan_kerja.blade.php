@@ -19,7 +19,8 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabel">Halo, {{ auth()->user()->firstname }}</h5>
+                                <h5 class="modal-title" id="staticBackdropLabel">Halo, {{ auth()->user()->firstname }}
+                                </h5>
                             </div>
                             <div class="modal-body">
                                 <p>Yuk lengkapi profil perusahaan kamu untuk mendaftar di layanan - layanan ketenagakerjaan
@@ -277,9 +278,7 @@
     </div> --}}
 @endsection
 
-@include(
-    'pemberi_kerja.lowongan_kerja.modal_delete.lowongan_kerja_delete'
-)
+@include('pemberi_kerja.lowongan_kerja.modal_delete.lowongan_kerja_delete')
 @section('js')
     <script>
         $(document).ready(function() {
@@ -303,10 +302,15 @@
                         dataType: 'json',
                         success: function(data) {
                             $("#frmDeleteLowonganKerja .close").click();
-                            window.location.reload();
+                            Swal.fire('Yeay, Lowongan kerja berhasil dihapus!', 'OK!',
+                                'success');
+                            setTimeout(function() {
+                                location.reload();
+                            }, 2000);
                         },
                         error: function(data) {
-                            console.log(data);
+                            Swal.fire(data, 'Aduh!',
+                                'error');
                         }
                     });
                 });
@@ -323,7 +327,8 @@
                     $('#deleteLowonganKerjaModal').appendTo('body').modal('show');
                 },
                 error: function(data) {
-                    console.log(data);
+                    Swal.fire(data, 'Aduh!',
+                        'error');
                 }
             });
         };

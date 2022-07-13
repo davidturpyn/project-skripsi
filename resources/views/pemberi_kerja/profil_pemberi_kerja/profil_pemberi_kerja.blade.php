@@ -14,7 +14,6 @@
             opacity: 1;
             cursor: pointer;
         }
-
     </style>
 @endsection
 
@@ -81,13 +80,13 @@
                             <p> <b>CABANG</b></p>
                             <div class="col-md-6">
                                 <label>Jumlah Cabang di Indonesia</label>
-                                <input input id="jumlah_cabang_dalam_negeri" type="text" class="form-control" value=""
-                                    required>
+                                <input input id="jumlah_cabang_dalam_negeri" type="text" class="form-control"
+                                    value="" required>
                             </div>
                             <div class="col-md-6">
                                 <label>Jumlah Cabang di Luar Negeri</label>
-                                <input input id="jumlah_cabang_luar_negeri" type="text" class="form-control" value=""
-                                    required>
+                                <input input id="jumlah_cabang_luar_negeri" type="text" class="form-control"
+                                    value="" required>
                             </div>
                         </div>
 
@@ -129,7 +128,8 @@
                         <div class="form-group row">
                             <label>Nama Jalan</label>
                             <div class="col-md-12">
-                                <input input id="nama_jalan" type="text" class="form-control" value="" required>
+                                <input input id="nama_jalan" type="text" class="form-control" value=""
+                                    required>
                             </div>
                         </div>
 
@@ -137,7 +137,8 @@
                             <p> <b>INFORMASI TAMBAHAN</b></p>
                             <div class="col-md-12">
                                 <label>Jenis Industri</label>
-                                <select id="id_jenis_industri" class="form-control" name="id_jenis_industri" required="">
+                                <select id="id_jenis_industri" class="form-control" name="id_jenis_industri"
+                                    required="">
                                     <option value=""></option>
                                     @foreach ($jenis_industris as $ji)
                                         <option value="{{ $ji->id }}">{{ $ji->nama }}</option>
@@ -149,22 +150,26 @@
                         <div class="form-group row">
                             <div class="col-md-6">
                                 <label>Telp. Perusahaan</label>
-                                <input input id="tlpn_perusahaan" type="text" class="form-control" value="" required>
+                                <input input id="tlpn_perusahaan" type="text" class="form-control" value=""
+                                    required>
                             </div>
                             <div class="col-md-6">
                                 <label>Email Perusahaan</label>
-                                <input input id="email_perusahaan" type="text" class="form-control" value="" required>
+                                <input input id="email_perusahaan" type="text" class="form-control" value=""
+                                    required>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label>Website Perusahaan</label>
-                            <input input id="website_perusahaan" type="text" class="form-control" value="" required>
+                            <input input id="website_perusahaan" type="text" class="form-control" value=""
+                                required>
                         </div>
 
                         <div class="form-group row">
                             <label>Tentang Perusahaan</label>
-                            <input input id="tentang_perusahaan" type="text" class="form-control" value="" required>
+                            <input input id="tentang_perusahaan" type="text" class="form-control" value=""
+                                required>
                         </div>
 
                         <div class="form-group row mb-0">
@@ -172,7 +177,8 @@
                                 <button type="submit" id="hapus-form-data-perusahaan" class="btn btn-primary">
                                     {{ __('Reset') }}
                                 </button>
-                                <button type="submit" id="btn-add-data-perusahaan" class="btn btn-primary" data-type="add">
+                                <button type="submit" id="btn-add-data-perusahaan" class="btn btn-primary"
+                                    data-type="add">
                                     {{ __('Simpan') }}
                                 </button>
                             </div>
@@ -226,8 +232,8 @@
                             <div class="col-md-6">
                                 <label>Provinsi</label>
                                 <select id="provinsi" class="form-control" name="provinsi"
-                                    value="{{ $get_provinsi->id }}"
-                                    data-value="{{ $get_provinsi->id }}" required="">
+                                    value="{{ $get_provinsi->id }}" data-value="{{ $get_provinsi->id }}"
+                                    required="">
                                     @foreach ($provinsis as $pro)
                                         <option value="{{ $pro->id }}">{{ $pro->name }}</option>
                                     @endforeach
@@ -237,8 +243,8 @@
                             <div class="col-md-6">
                                 <label>Kabupaten</label>
                                 <select id="kabupaten" disabled class="form-control" name="kabupaten"
-                                    value="{{ $get_kabupaten->id }}"
-                                    data-value="{{ $get_kabupaten->id }}" required="">
+                                    value="{{ $get_kabupaten->id }}" data-value="{{ $get_kabupaten->id }}"
+                                    required="">
                                     @foreach ($get_provinsi->regencies as $kab)
                                         <option value="{{ $kab->id }}">{{ $kab->name }}</option>
                                     @endforeach
@@ -250,8 +256,8 @@
                             <div class="col-md-6">
                                 <label>Kecamatan</label>
                                 <select id="kecamatan" disabled class="form-control" name="kecamatan"
-                                    value="{{ $get_kecamatan->id }}"
-                                    data-value="{{ $get_kecamatan->id }}" required="">
+                                    value="{{ $get_kecamatan->id }}" data-value="{{ $get_kecamatan->id }}"
+                                    required="">
                                     @foreach ($get_provinsi->districts as $kec)
                                         <option value="{{ $kec->id }}">{{ $kec->name }}</option>
                                     @endforeach
@@ -260,8 +266,8 @@
                             <div class="col-md-6">
                                 <label>Kelurahan</label>
                                 <select id="kelurahan" disabled class="form-control" name="kelurahan"
-                                    value="{{ $get_kelurahan->id }}"
-                                    data-value="{{ $get_kelurahan->id }}" required="">
+                                    value="{{ $get_kelurahan->id }}" data-value="{{ $get_kelurahan->id }}"
+                                    required="">
                                     @foreach ($get_provinsi->villages as $kel)
                                         <option value="{{ $kel->id }}">{{ $kel->name }}</option>
                                     @endforeach
@@ -317,8 +323,8 @@
                                 <button type="submit" id="hapus-form-data-perusahaan" class="btn btn-primary">
                                     {{ __('Reset') }}
                                 </button>
-                                <button type="submit" id="btn-add-data-perusahaan" class="btn btn-primary" data-type="edit"
-                                    data-id="{{ $data_pemberi_kerjas->id }}">
+                                <button type="submit" id="btn-add-data-perusahaan" class="btn btn-primary"
+                                    data-type="edit" data-id="{{ $data_pemberi_kerjas->id }}">
                                     {{ __('Simpan') }}
                                 </button>
                             </div>
@@ -500,7 +506,8 @@
                         <div class="form-group row">
                             <div class="col-md-12">
                                 <label>Status Pemodal</label>
-                                <select id="id_status_pemodal" class="form-control" name="id_status_pemodal" required="">
+                                <select id="id_status_pemodal" class="form-control" name="id_status_pemodal"
+                                    required="">
                                     <option value="" disabled selected></option>
                                     <option value="PMDN">PMDN</option>
                                     <option value="Swasta Nasional">Swasta Nasional</option>
@@ -733,11 +740,15 @@
                     negara_status_perusahaan: $("#negara_status_perusahaan").val(),
                 },
                 success: function(data) {
-
-                    alert('Status Perusahaan Berhasil Diubah');
+                    Swal.fire('Yeay, Status perusahaanmu berhasil diubah!', 'OK!',
+                        'success');
+                    setTimeout(function() {
+                        location.reload();
+                    }, 2000);
                 },
                 error: function(data) {
-                    console.log(data);
+                    Swal.fire(data, 'Aduh!',
+                        'error');
                 }
             });
         }
@@ -762,11 +773,15 @@
                     alamat_pengurus: $("#alamat_pengurus").val(),
                 },
                 success: function(data) {
-
-                    alert('Legalitas Perusahaan Berhasil Diubah');
+                    Swal.fire('Yeay, Legalitas perusahaanmu berhasil diubah!', 'OK!',
+                        'success');
+                    setTimeout(function() {
+                        location.reload();
+                    }, 2000);
                 },
                 error: function(data) {
-                    console.log(data);
+                    Swal.fire(data, 'Aduh!',
+                        'error');
                 }
             });
         }
@@ -802,10 +817,15 @@
                 contentType: false,
                 dataType: 'json',
                 success: function(data) {
-                    alert('Data Perusahaan Berhasil Diubah');
+                    Swal.fire('Yeay, Data perusahaanmu berhasil diubah!', 'OK!',
+                        'success');
+                    setTimeout(function() {
+                        location.reload();
+                    }, 2000);
                 },
                 error: function(data) {
-                    console.log(data);
+                    Swal.fire(data, 'Aduh!',
+                        'error');
                 }
             });
         }

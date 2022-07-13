@@ -540,7 +540,8 @@
                             },2000);
                     },
                     error: function(data) {
-                        console.log(data);
+                        Swal.fire(data, 'Aduh!',
+                        'error');
                     }
                 });
             })

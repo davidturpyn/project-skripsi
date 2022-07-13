@@ -167,8 +167,11 @@
                                 tgl_berlaku: tgl_laku,
                             },
                             success: function(data) {
-                                alert('Pelaporan Perusahaan Berhasil');
-                                window.location.reload();
+                                Swal.fire('Yeay, Pelaporan berhasil dibuat!', 'OK!',
+                                    'success');
+                                setTimeout(function() {
+                                    location.reload();
+                                }, 2000);
                             },
                             error: function(data) {
                                 console.log(data);
@@ -177,9 +180,9 @@
                         // alert(tanggal_sekarang);
                     } else if (dt_now > conv_berlapor && dt_now < conv_berlaku && status_laporan ==
                         "Berlaku") {
-                        alert('laporan anda masih berlaku, dari tanggal ' + tgl_berlapor_laporan +
-                            ' sampai ' +
-                            tgl_berlaku_laporan);
+                        Swal.fire('Wah, Laporan masih berlaku nih dari tanggal ' + tgl_berlapor_laporan +
+                            ' sampai ' + tgl_berlaku_laporan, 'OK!',
+                            'info');
                     }
                 });
             @endif

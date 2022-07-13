@@ -140,9 +140,12 @@
                     },
                     dataType: 'json',
                     success: function(data) {
-                        $('#frmAddJadwalInterview').trigger("reset");
                         $("#frmAddJadwalInterview .close").click();
-                        window.location.reload();
+                        Swal.fire('Yeay, Jadwal interview berhasil ditambahkan!', 'OK!',
+                            'success');
+                        setTimeout(function() {
+                            location.reload();
+                        }, 2000);
                     },
                     error: function(data) {
                         var errors = $.parseJSON(data.responseText);
@@ -177,9 +180,12 @@
                     },
                     dataType: 'json',
                     success: function(data) {
-                        $('#frmEditJadwalInterview').trigger("reset");
                         $("#frmEditJadwalInterview .close").click();
-                        window.location.reload();
+                        Swal.fire('Yeay, Jadwal interview berhasil diubah!', 'OK!',
+                            'success');
+                        setTimeout(function() {
+                            location.reload();
+                        }, 2000);
                     },
                     error: function(data) {
                         var errors = $.parseJSON(data.responseText);
@@ -202,7 +208,11 @@
                     dataType: 'json',
                     success: function(data) {
                         $("#frmDeleteJadwalInterview .close").click();
-                        window.location.reload();
+                        Swal.fire('Yeay, Jadwal interview berhasil dihapus!', 'OK!',
+                            'success');
+                        setTimeout(function() {
+                            location.reload();
+                        }, 2000);
                     },
                     error: function(data) {
                         console.log(data);

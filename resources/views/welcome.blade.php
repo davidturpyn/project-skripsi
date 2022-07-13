@@ -34,7 +34,8 @@
         }
 
         body {
-            margin: 0
+            margin: 0;
+            font-family: 'Nunito', sans-serif;
         }
 
         a {
@@ -406,13 +407,6 @@
         }
 
     </style>
-
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
-
-    </style>
 </head>
 
 <body class="antialiased">
@@ -443,8 +437,7 @@
                 @endauth
             @endif
         </div>
-
-
+        
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
             <div class="text-black-600">
                 <div class="ml-4 text-lg leading-7 font-semibold">

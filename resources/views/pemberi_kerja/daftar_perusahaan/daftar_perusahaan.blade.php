@@ -62,7 +62,8 @@
                     $('#showDetailPerusahaanModal').appendTo('body').modal('show');
                 },
                 error: function(data) {
-                    console.log(data);
+                    Swal.fire(data, 'Aduh!',
+                        'error');
                 }
             });
         }

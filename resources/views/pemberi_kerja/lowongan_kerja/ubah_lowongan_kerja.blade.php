@@ -549,11 +549,14 @@
                         .serialize(),
                     dataType: 'json',
                     success: function(data) {
-                        window.location.href = "{{ route('lowongan_kerja.index') }}";
-                        console.log(data);
+                        swal.fire("Yeay!", "Lowongan Kerja Berhasil Diubah", "success");
+                        setTimeout(function(){
+                                location.href = "{{ route('lowongan_kerja.index') }}";
+                            },2000);
                     },
                     error: function(data) {
-                        console.log(data);
+                        Swal.fire(data, 'Aduh!',
+                        'error');
                     }
                 });
             })
