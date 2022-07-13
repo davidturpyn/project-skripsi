@@ -20,7 +20,7 @@
                 <a href="#" class="nav-link has-dropdown"><i class="fab fa-black-tie"></i><span>Karir</span></a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="/lowongan_kerja"><i class="fas fa-list"></i>Lowongan Kerja</a></li>
-                    <li><a class="nav-link" href="/mencari_pekerja"><i class="fas fa-clock"></i>Mencari Pekerja</a></li>
+                    <li><a class="nav-link" href="/mencari_pekerja"><i class="fas fa-search"></i>Mencari Pekerja</a></li>
                     <li><a class="nav-link" href="/jadwal_interview"><i class="fas fa-clock"></i>Jadwal Interview</a></li>
                 </ul>
             </li>

@@ -36,7 +36,7 @@ use App\Http\Controllers\Pencari_Kerja\ProfilPencariKerjaController;
 
 //routes untuk public dipakai 3 role
 Auth::routes();
-Route::get('/', function () {return view('welcome');})->name('home');
+Route::get('/', function () {return view('auth.login');})->name('home');
 Route::get('/beranda', function() {
         if (Auth::user()->hasRole('admin'))
             {
