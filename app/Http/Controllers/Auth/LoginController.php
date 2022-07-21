@@ -50,7 +50,6 @@ class LoginController extends Controller
         else if($user->hasRole('pemberi kerja')){
             return redirect()->route('dashboard_pemberi_kerja');
         }
-
         return redirect()->route('home');
     }
 }

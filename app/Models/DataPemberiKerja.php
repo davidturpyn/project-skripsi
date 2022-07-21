@@ -37,7 +37,7 @@ class DataPemberiKerja extends Model
     {
         return $this->belongsTo(Village::class, 'kelurahan_id', 'id');
     }
-    public function lowongan_kerja()
+    public function lowongan_kerjas()
     {
         return $this->hasMany(LowonganKerja::class, 'id_data_pemberi_kerja', 'id');
     }

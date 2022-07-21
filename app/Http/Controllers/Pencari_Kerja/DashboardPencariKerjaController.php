@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Pencari_Kerja;
 
 use App\Http\Controllers\Controller;
+use App\Models\DataPemberiKerja;
+use App\Models\LowonganKerja;
 use Illuminate\Http\Request;
 
 class DashboardPencariKerjaController extends Controller
@@ -14,7 +16,13 @@ class DashboardPencariKerjaController extends Controller
      */
     public function index()
     {
-        return view('pencari_kerja.dashboard');
+        // sorted by created at
+        $lowongan_kerja = LowonganKerja::with('data_pemberi_kerja')->get();
+        // dd($lowongan_kerja);
+        return view('pencari_kerja.dashboard',
+        [
+            'lowongan_kerjas' => $lowongan_kerja,
+        ]);
     }
 
     /**

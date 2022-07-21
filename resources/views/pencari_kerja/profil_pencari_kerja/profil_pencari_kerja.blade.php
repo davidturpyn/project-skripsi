@@ -292,7 +292,7 @@
                             </div>
                             @if (count($profils->keahlian_pencari_kerjas) > 0)
                                 <div class="row m-auto p-auto my-2 border py-2 d-flex">
-                                    @foreach ($profil->$keahlian_pencari_kerjas as $k)
+                                    @foreach ($keahlian_pencari_kerjas as $k)
                                         <div class="mb-0 p-2">
                                             <small class="badge badge-pill badge-info">{{ $k->nama }}
                                             </small>

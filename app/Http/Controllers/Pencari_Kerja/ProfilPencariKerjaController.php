@@ -40,6 +40,7 @@ class ProfilPencariKerjaController extends Controller
             $pendidikan = Pendidikan::Where('nik', $profil->nik)->get();
             $sertifikat = Sertifikat::Where('nik', $profil->nik)->get();
             $keahlian_pencari_kerja = $profil->keahlian_pencari_kerjas()->get();
+            // dd($keahlian_pencari_kerja);
             return view(
                 'pencari_kerja.profil_pencari_kerja.profil_pencari_kerja',
                 [
